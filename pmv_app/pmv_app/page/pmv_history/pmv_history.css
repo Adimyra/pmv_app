@@ -72,6 +72,11 @@
     margin-bottom: 12px;
 }
 
+.header-date {
+    display: none;
+    /* Hidden by default (List View) */
+}
+
 .batch-id {
     font-weight: 700;
     font-size: 1.1rem;
@@ -213,14 +218,44 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 0;
+    /* Remove padding from container for title bar effect */
+    overflow: hidden;
+}
+
+.view-card .history-item-header {
+    background: #f8fafc;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 0;
+}
+
+.view-card .header-date {
+    display: block;
+    margin-top: 2px;
 }
 
 .view-card .history-item-body {
     flex-grow: 1;
+    padding: 20px 20px 10px;
+    margin-bottom: 0;
+}
+
+.view-card .history-item-meta {
+    padding: 0 20px 10px;
+    margin-bottom: 0;
+}
+
+.view-card .meta-date {
+    display: none;
+    /* Hide duplicate date in meta */
 }
 
 .view-card .history-item-actions {
     margin-top: auto;
+    padding: 15px 20px;
+    background: #fff;
+    /* Ensure white bg */
 }
 
 /* Empty State */

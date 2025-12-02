@@ -94,14 +94,17 @@ function render_content(page, logs) {
             html += `
 				<div class="history-item">
 					<div class="history-item-header">
-						<div class="batch-id">${log.batch_id}</div>
+						<div class="header-left">
+							<div class="batch-id">${log.batch_id}</div>
+							<div class="header-date text-muted text-xs">${frappe.datetime.str_to_user(log.processing_date)}</div>
+						</div>
 						<span class="status-badge ${statusClass}">${log.status}</span>
 					</div>
 					<div class="history-item-body">
 						${log.description || 'No description provided.'}
 					</div>
 					<div class="history-item-meta">
-						<div title="Processing Date"><i class="fa fa-calendar"></i> ${frappe.datetime.str_to_user(log.processing_date)}</div>
+						<div class="meta-date" title="Processing Date"><i class="fa fa-calendar"></i> ${frappe.datetime.str_to_user(log.processing_date)}</div>
 						<div title="Created"><i class="fa fa-clock-o"></i> ${frappe.datetime.comment_when(log.creation)}</div>
 					</div>
 					<div class="history-item-actions">
