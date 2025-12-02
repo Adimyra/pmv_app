@@ -72,9 +72,15 @@
     margin-bottom: 12px;
 }
 
+.header-left {
+    display: flex;
+    flex-direction: column;
+}
+
 .header-date {
     display: none;
     /* Hidden by default (List View) */
+    font-weight: 500;
 }
 
 .batch-id {
@@ -127,9 +133,15 @@
 
 .history-item-actions {
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
     border-top: 1px solid #f1f5f9;
     padding-top: 16px;
+}
+
+.actions-group {
+    display: flex;
+    gap: 10px;
 }
 
 .action-btn {
@@ -182,6 +194,10 @@
     gap: 15px;
 }
 
+.view-list .history-item-sub {
+    display: none;
+}
+
 .view-list .batch-id {
     min-width: 150px;
 }
@@ -224,20 +240,25 @@
 }
 
 .view-card .history-item-header {
-    background: #f8fafc;
+    background: #e2e8f0;
+    /* More gray */
     padding: 15px 20px;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid #cbd5e1;
     margin-bottom: 0;
 }
 
 .view-card .header-date {
     display: block;
-    margin-top: 2px;
+    color: #64748b;
+}
+
+.view-card .history-item-sub {
+    display: none;
 }
 
 .view-card .history-item-body {
     flex-grow: 1;
-    padding: 20px 20px 10px;
+    padding: 10px 20px 10px;
     margin-bottom: 0;
 }
 

@@ -5,9 +5,6 @@ frappe.pages['pmv-history'].on_page_load = function (wrapper) {
         single_column: true
     });
 
-    // Load CSS
-    frappe.require('pmv_history.css');
-
     // Add back button
     page.set_secondary_action('Back to Dashboard', () => {
         frappe.set_route('pmv-dashboard');
@@ -94,11 +91,8 @@ function render_content(page, logs) {
             html += `
 				<div class="history-item">
 					<div class="history-item-header">
-						<div class="header-left">
-							<div class="batch-id">${log.batch_id}</div>
-							<div class="header-date text-muted text-xs">${frappe.datetime.str_to_user(log.processing_date)}</div>
-						</div>
-						<span class="status-badge ${statusClass}">${log.status}</span>
+						<div class="batch-id">${log.batch_id}</div>
+						<div class="header-date text-muted text-xs">${frappe.datetime.str_to_user(log.processing_date)}</div>
 					</div>
 					<div class="history-item-body">
 						${log.description || 'No description provided.'}
@@ -108,7 +102,10 @@ function render_content(page, logs) {
 						<div title="Created"><i class="fa fa-clock-o"></i> ${frappe.datetime.comment_when(log.creation)}</div>
 					</div>
 					<div class="history-item-actions">
-						${actions}
+						<div class="actions-group">
+							${actions}
+						</div>
+						<span class="status-badge ${statusClass}">${log.status}</span>
 					</div>
 				</div>
 			`;

@@ -19,6 +19,12 @@ def process_files(excel_file, pdf_file, batch_id, processing_date, description=N
         dict: URLs of the processed Excel and PDF files.
     """
     try:
+        # Handle multiple PDF files
+        if isinstance(pdf_file, list):
+            pdf_file_val = json.dumps(pdf_file)
+        else:
+            pdf_file_val = pdf_file
+
         # 1. Create Process Log Entry
         process_log = frappe.get_doc({
             "doctype": "PMV Process Log",
@@ -26,7 +32,7 @@ def process_files(excel_file, pdf_file, batch_id, processing_date, description=N
             "processing_date": processing_date,
             "description": description,
             "excel_file": excel_file,
-            "pdf_file": pdf_file,
+            "pdf_file": pdf_file_val,
             "status": "Pending"
         })
         process_log.insert()

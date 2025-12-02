@@ -137,24 +137,46 @@ class PMVDashboard {
 	}
 
 	open_file_uploader(type) {
+		const allowMultiple = type === 'pdf';
+
 		new frappe.ui.FileUploader({
 			doctype: 'File',
+			allow_multiple: allowMultiple,
 			on_success: (file_doc) => {
 				// If starting a new batch (both files were null), clear previous logs
 				if (!this.files.excel && !this.files.pdf) {
 					this.page.main.find('#activity-log-list').empty();
 				}
 
-				this.files[type] = file_doc.file_url;
-
-				// Update UI
 				if (type === 'excel') {
+					this.files.excel = file_doc.file_url;
 					this.page.main.find('#excel-file-path').val(file_doc.file_name);
+					this.add_log_item(`Uploaded ${file_doc.file_name} `, 'Just now', 'info', 'fa fa-upload');
 				} else {
-					this.page.main.find('#pdf-file-path').val(file_doc.file_name);
-				}
+					// Handle multiple PDFs
+					if (!this.files.pdf) this.files.pdf = [];
 
-				this.add_log_item(`Uploaded ${file_doc.file_name} `, 'Just now', 'info', 'fa fa-upload');
+					// file_doc can be a single object or array depending on implementation, 
+					// but usually on_success is called once per upload or with list.
+					// Frappe FileUploader on_success arg depends on version. 
+					// Assuming it returns the last uploaded file or we need to check if it's an array.
+					// Standard FileUploader calls on_success for each file if multiple?
+					// Let's assume we get one file_doc at a time or check.
+					// Actually, standard FileUploader with allow_multiple might behave differently.
+					// Let's assume we append to the list.
+
+					// If file_doc is array (some versions)
+					if (Array.isArray(file_doc)) {
+						file_doc.forEach(f => this.files.pdf.push(f.file_url));
+						const names = file_doc.map(f => f.file_name).join(', ');
+						this.page.main.find('#pdf-file-path').val(`${this.files.pdf.length} files selected`);
+						this.add_log_item(`Uploaded ${names} `, 'Just now', 'info', 'fa fa-upload');
+					} else {
+						this.files.pdf.push(file_doc.file_url);
+						this.page.main.find('#pdf-file-path').val(`${this.files.pdf.length} files selected`);
+						this.add_log_item(`Uploaded ${file_doc.file_name} `, 'Just now', 'info', 'fa fa-upload');
+					}
+				}
 
 				frappe.show_alert({
 					message: __('File uploaded successfully'),
