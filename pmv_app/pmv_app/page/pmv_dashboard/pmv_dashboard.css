@@ -246,3 +246,109 @@
 .input-group .form-control-custom {
     flex: 1;
 }
+
+/* Dark Mode Overrides */
+[data-theme="dark"] .dashboard-container {
+    background-color: #0f172a;
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] .dashboard-header {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .dashboard-header p {
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .custom-card {
+    background: #1e293b;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .card-header-custom {
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+    color: #f1f5f9;
+}
+
+[data-theme="dark"] .form-label-custom {
+    color: #94a3b8;
+}
+
+[data-theme="dark"] .form-control-custom {
+    background-color: #0f172a;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+[data-theme="dark"] .form-control-custom:focus {
+    border-color: #8b5cf6;
+    background-color: #0f172a;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+}
+
+[data-theme="dark"] .form-control-custom::placeholder {
+    color: #64748b;
+}
+
+[data-theme="dark"] .btn-custom-secondary {
+    background: #0f172a;
+    border-color: #334155;
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] .btn-custom-secondary:hover {
+    background: #1e293b;
+    border-color: #475569;
+    color: #f8fafc;
+}
+
+[data-theme="dark"] .activity-log-item {
+    border-bottom: 1px solid #334155;
+}
+
+[data-theme="dark"] .activity-log-item:hover {
+    background: #0f172a;
+}
+
+[data-theme="dark"] .activity-log-item h6 {
+    color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .log-icon.success {
+    background: rgba(22, 101, 52, 0.2);
+    color: #4ade80;
+}
+
+[data-theme="dark"] .log-icon.info {
+    background: rgba(30, 64, 175, 0.2);
+    color: #60a5fa;
+}
+
+[data-theme="dark"] .log-icon.warning {
+    background: rgba(133, 77, 14, 0.2);
+    color: #facc15;
+}
+
+[data-theme="dark"] .log-icon.danger {
+    background: rgba(153, 27, 27, 0.2);
+    color: #f87171;
+}
+
+[data-theme="dark"] .text-primary {
+    color: #818cf8 !important;
+}
+
+[data-theme="dark"] .text-warning {
+    color: #fbbf24 !important;
+}
+
+[data-theme="dark"] .text-success {
+    color: #34d399 !important;
+}
+
+[data-theme="dark"] .text-danger {
+    color: #f87171 !important;
+}
