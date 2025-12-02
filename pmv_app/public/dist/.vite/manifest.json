@@ -1,0 +1,11 @@
+{
+  "src/main.js": {
+    "file": "assets/main-CIowC-gm.js",
+    "name": "main",
+    "src": "src/main.js",
+    "isEntry": true,
+    "css": [
+      "assets/main-DANyQLm4.css"
+    ]
+  }
+}

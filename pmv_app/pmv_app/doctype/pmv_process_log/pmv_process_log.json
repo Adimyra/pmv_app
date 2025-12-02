@@ -1,0 +1,104 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:LOG-{YYYY}-{MM}-{DD}-{####}",
+ "creation": "2024-12-02 14:00:00.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "batch_id",
+  "processing_date",
+  "status",
+  "description",
+  "section_break_files",
+  "excel_file",
+  "pdf_file",
+  "section_break_output",
+  "output_excel",
+  "output_pdf"
+ ],
+ "fields": [
+  {
+   "fieldname": "batch_id",
+   "fieldtype": "Data",
+   "label": "Batch Process ID",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "processing_date",
+   "fieldtype": "Date",
+   "label": "Date of Processing",
+   "reqd": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nSuccess\nFailed"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_files",
+   "fieldtype": "Section Break",
+   "label": "Input Files"
+  },
+  {
+   "fieldname": "excel_file",
+   "fieldtype": "Attach",
+   "label": "Excel Source File"
+  },
+  {
+   "fieldname": "pdf_file",
+   "fieldtype": "Attach",
+   "label": "Supporting PDF"
+  },
+  {
+   "fieldname": "section_break_output",
+   "fieldtype": "Section Break",
+   "label": "Output Files"
+  },
+  {
+   "fieldname": "output_excel",
+   "fieldtype": "Attach",
+   "label": "Processed Excel"
+  },
+  {
+   "fieldname": "output_pdf",
+   "fieldtype": "Attach",
+   "label": "Processed PDF"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-12-02 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PMV App",
+ "name": "PMV Process Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

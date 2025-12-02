@@ -1,0 +1,20 @@
+{
+ "content": null,
+ "creation": "2025-12-02 13:03:16.334093",
+ "docstatus": 0,
+ "doctype": "Page",
+ "icon": "fa-fa",
+ "idx": 0,
+ "modified": "2025-12-02 13:03:16.334093",
+ "modified_by": "Administrator",
+ "module": "PMV APP",
+ "name": "pmv-dashboard",
+ "owner": "Administrator",
+ "page_name": "pmv-dashboard",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "PMV Dashboard"
+}
